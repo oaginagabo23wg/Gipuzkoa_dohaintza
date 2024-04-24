@@ -5,13 +5,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class LehioNagusi extends JFrame {
-    public static void main(String[] args){
-        new LehioNagusi().sortuLehioNagusi();
-    }
-    private void sortuLehioNagusi(){
+
+    public void sortuLehioNagusi(){
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(650, 300));
+        setPreferredSize(new Dimension(1000, 600));
         setTitle("Gipuzkoako Odol Dohaintza");
 
         // Goiko nabegadorea
@@ -38,18 +36,40 @@ public class LehioNagusi extends JFrame {
 
         // Zentroko edukia
         JPanel edukia = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JLabel edukiText = new JLabel("Gizakion odola ondasun preziatua da, eta bakoitzak badaki. " +
-                "Hortaz keinu txiki honekin pertsona hugariri laguntzeko ahalmena duzu. " +
-                "Nahiz eta aurrerapen medikoak eta teknologikoak momentu oro bermatu, oraingoz, odola " +
-                "ezin da fabrikatu eta pertsonen donazio altruistetatik bakarrik lor daiteke. " +
-                "\n" +
-                "Odol-emate bakoitzetik hiru osagai ezberdin lortzen dira, hainbat gaixori laguntzeko aplikazio propioekin. " +
-                "");
-        edukiText.setBorder(new EmptyBorder(30,50,0,50));
+        JLabel edukiText = new JLabel();
+
+        String textua = "<html><p>Gizakion odola ondasun preziatua da, eta bakoitzak badaki. Hortaz keinu txiki honekin pertsona hugariri<p/> " +
+                "<p>laguntzeko ahalmena duzu. Nahiz eta aurrerapen medikoak eta teknologikoak momentu oro bermatu, <p/>" +
+                "<p>oraingoz, odola ezin da fabrikatu eta pertsonen donazio altruistetatik bakarrik lor daiteke. Odol-emate <p/>" +
+                "<p>bakoitzetik hiru osagai ezberdin lortzen dira, hainbat gaixori laguntzeko aplikazio propioekin. <p/>" +
+                "<p> <p/>" +
+                "<p>Odolak eta haren osagaiek bizitza mugatua dute:<p/> " +
+                "<p>- Hematien kontzentratuak 42 egunez kontserbatzen dira.<p/>" +
+                "<p>- Plasma izoztuta mantentzen da 3 urtera arte, baina medikamentuak fabrikatzeko etengabe erabiltzen da.<p/>" +
+                "<p>- Plaketak 5 eta 7 egun bitartean kontserbatzen dira";
+        edukiText.setText(textua);
+        edukiText.setBorder(new EmptyBorder(30,0,0,50));
+        edukia.setPreferredSize(new Dimension(200,500));
         edukia.add(edukiText);
 
         add(edukia, BorderLayout.CENTER);
 
+        pack();
+        setVisible(true);
+
+
+    }
+    //login
+    private  void login() {
+        JTextField username = new JTextField();
+        JTextField password = new JTextField();
+
+        JPanel myPanel = new JPanel();
+        myPanel.add(new JLabel("Username:"));
+        myPanel.add(username);
+        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(new JLabel("Passwprd:"));
+        myPanel.add(password);
         pack();
         setVisible(true);
     }
